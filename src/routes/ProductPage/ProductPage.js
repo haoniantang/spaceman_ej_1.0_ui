@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './ProductPage.css';
 import axios from '../../utils/axios'
-import {Table,Button,Menu, Dropdown, Icon} from 'antd'
+import {Table,Button,TreeSelect} from 'antd'
 
 
 class ProductPage extends React.Component {
@@ -23,7 +23,7 @@ componentDidMount(){
 //加载数据
 reloadData(){
   this.setState({loading:true});
-    axios.get("/product/findAll")
+    axios.get("/product/findAllProduct")
     .then((result)=>{
       this.setState({list:result.data})
     })
@@ -34,40 +34,172 @@ reloadData(){
 
   render(){
     let columns = [{
-      title:"产品序列",
-      dataIndex:"id"
+      title:"列产品序",
+      dataIndex:"id",
+      width:"12%"
+
   },{
       title:"服务名称",
-      dataIndex:"name"
+      dataIndex:"name",
+      width:"15%"
   },{
       title:"详情",
-      dataIndex:"gender"
+      dataIndex:"description",
+      width:"35%"
   },{
       title:"价格",
-      dataIndex:"price"
-  },{
-      title:"状态",
-      dataIndex:"status"
+      dataIndex:"price",
+      width:"8%"
   },{
       title:"服务概览",
-      dataIndex:"photo"
-  },{
-      title:"服务人员",
-     dataIndex:"category_id"
-  }]
+      dataIndex:"photo",
+      width:"30%"
+  },];
 
-  const { SubMenu } = Menu;
-  let menu = (
-  <Menu>
-
-    <SubMenu title="一级分类">
-      <SubMenu title="二级分类">
-      <Menu.Item>三级分类</Menu.Item>
-      </SubMenu>
-    </SubMenu>
-
-  </Menu>
-  );
+//const { TreeSelect } = TreeSelect;
+const treeData = [
+  {
+    title: '衣物洗护',
+    value: '0-0-1',
+    key: '0-0-1',
+    children: [
+      {
+        title: '上衣',
+        value: '0-0-1',
+        key: '0-0-1',
+        children:[
+          {
+            title: '毛衣',
+            value: '0-0-1',
+            key: '0-0-1',
+          },
+        ],
+      },
+      {
+        title: '裙装',
+        value: '0-0-1',
+        key: '0-0-1',
+        children:[
+          {
+            title: '长裙',
+            value: '0-0-1',
+            key: '0-0-1',
+          },
+        ],
+      },
+      {
+        title: '裤类',
+        value: '0-0-1',
+        key: '0-0-1',
+        children:[
+          {
+            title: '长裤',
+            value: '0-0-1',
+            key: '0-0-1',
+          },
+        ],
+      },
+      {
+        title: '鞋类',
+        value: '0-0-1',
+        key: '0-0-1',
+        children:[
+          {
+            title: '运动鞋',
+            value: '0-0-1',
+            key: '0-0-1',
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: '室内保洁',
+    value: '0-0-1',
+    key: '0-0-1',
+    children: [
+      {
+        title: '家庭清洁',
+        value: '0-0-1',
+        key: '0-0-1',
+        children:[
+          {
+            title: '日常打扫',
+            value: '0-0-1',
+            key: '0-0-1',
+          },
+        ],
+      },
+      {
+        title: '污渍清理',
+        value: '0-0-1',
+        key: '0-0-1',
+        children:[
+          {
+            title: '深度清理',
+            value: '0-0-1',
+            key: '0-0-1',
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: '看护',
+    value: '0-0-1',
+    key: '0-0-1',
+    children: [
+      {
+        title: '妇幼',
+        value: '0-0-1',
+        key: '0-0-1',
+        children:[
+          {
+            title: '接送上学',
+            value: '0-0-1',
+            key: '0-0-1',
+          },
+          {
+            title: '医护月嫂',
+            value: '0-0-1',
+            key: '0-0-1',
+          },
+        ],
+      },
+      {
+        title: '病人',
+        value: '0-0-1',
+        key: '0-0-1',
+        children:[
+          {
+            title: '医院陪护',
+            value: '0-0-1',
+            key: '0-0-1',
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: '其他',
+    value: '0-0-1',
+    key: '0-0-1',
+    children: [
+      {
+        title: '安保',
+        value: '0-0-1',
+        key: '0-0-1',
+        children:[
+          {
+            title: '个人保镖',
+            value: '0-0-1',
+            key: '0-0-1',
+          },
+        ],
+      },
+    ],
+  },
+];
 
   const rowSelection = {
     onChange: (selectedRowKeys, selectedRows) => {
@@ -86,12 +218,15 @@ reloadData(){
       <div className={styles.product}>
       <div className={styles.title}>产品管理</div>
       <div>
-        <Dropdown overlay={menu}>
-          <Button>
-            服务类型 <Icon type="down" />
-          </Button>
-        </Dropdown> &nbsp;
-        <Button type="primary">选择服务</Button>
+          <TreeSelect
+          style={{ width: 300 }}
+          value={this.state.value}
+          dropdownStyle={{ maxHeight: 300, overflow: 'auto' }}
+          treeData={treeData}
+          placeholder="服务列表"
+          onChange={this.onChange}
+          />
+          <Button type="primary">选择服务</Button>
       </div>
       <br/>
       <Table 
