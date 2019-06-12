@@ -35,7 +35,9 @@ reloadData(){
   render(){
     let columns = [{
       title:"产品序列",
-      dataIndex:"id"
+      dataIndex:"id",
+      width:100
+
   },{
       title:"服务名称",
       dataIndex:"name"
