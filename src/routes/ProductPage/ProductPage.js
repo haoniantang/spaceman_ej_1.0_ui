@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './ProductPage.css';
-import axios from '../utils/axios'
+import axios from '../../utils/axios'
 import {Table,Button,Menu, Dropdown, Icon} from 'antd'
 
 
@@ -67,7 +67,7 @@ reloadData(){
     </SubMenu>
 
   </Menu>
-);
+  );
 
   const rowSelection = {
     onChange: (selectedRowKeys, selectedRows) => {
@@ -102,7 +102,7 @@ reloadData(){
           rowSelection={rowSelection}
           columns={columns}
           dataSource={this.state.list}/>
-    </div>
+      </div>
   )
   }
 }
