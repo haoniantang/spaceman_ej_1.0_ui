@@ -1,18 +1,19 @@
 import React from 'react';
 import styles from './ProductPage.css';
 import axios from '../utils/axios'
-import {Table,Button} from 'antd'
+import {Table,Button,Menu, Dropdown, Icon} from 'antd'
+
 
 class ProductPage extends React.Component {
 
   constructor(){
     super();
     this.state = {
-      ids:[], // 批量删除的时候保存的id
       list:[],
       loading:false
     }
 }
+
 
 //生命周期函数，组件绑定时执行
 componentDidMount(){
@@ -22,7 +23,7 @@ componentDidMount(){
 //加载数据
 reloadData(){
   this.setState({loading:true});
-    axios.get("/ej_product/findAll")
+    axios.get("/product/findAll")
     .then((result)=>{
       this.setState({list:result.data})
     })
@@ -54,25 +55,43 @@ reloadData(){
       title:"服务人员",
      dataIndex:"category_id"
   }]
+
+  const { SubMenu } = Menu;
+  let menu = (
+  <Menu>
+
+    <SubMenu title="一级分类">
+      <SubMenu title="二级分类">
+      <Menu.Item>三级分类</Menu.Item>
+      </SubMenu>
+    </SubMenu>
+
+  </Menu>
+);
+
   const rowSelection = {
     onChange: (selectedRowKeys, selectedRows) => {
-      // 当用户操作复选按钮的时候，将值获取到并且保存到state中
       this.setState({
         ids:selectedRowKeys
       })
     },
     getCheckboxProps: record => ({
-      disabled: record.name === 'Disabled User', // Column configuration not to be checked
+      disabled: record.name === 'Disabled User', 
       name: record.name,
     }),
   };
+
 
     return (
       <div className={styles.product}>
       <div className={styles.title}>产品管理</div>
       <div>
-          <Button type="primary">查看服务</Button> &nbsp;
-          <Button type="primary">选择服务</Button>
+        <Dropdown overlay={menu}>
+          <Button>
+            服务类型 <Icon type="down" />
+          </Button>
+        </Dropdown> &nbsp;
+        <Button type="primary">选择服务</Button>
       </div>
       <br/>
       <Table 
