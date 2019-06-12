@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './ProductPage.css';
+import styles from './ProductPage.less';
 import axios from '../../utils/axios'
 import {Table,Button,TreeSelect} from 'antd'
 

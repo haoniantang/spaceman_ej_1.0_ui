@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, Form, Input, Button, message, Icon, Checkbox } from "antd";
+import { Form, Input, Button, message, Icon, Checkbox } from "antd";
 import styles from './LoginPage.less'
 const FormItem = Form.Item;
 class FormLogin extends React.Component{
@@ -40,8 +40,7 @@ class FormLogin extends React.Component{
                                             message:'用户名必须为字母或者数字'
                                         }
                                     ]
-                                })
-                                (
+                                })(
                                     <Input prefix={<Icon type="user" className={styles.prefixIcon} />} placeholder=" 请输入用户名" />
                                 )
                             }
@@ -65,7 +64,7 @@ class FormLogin extends React.Component{
                                     <Checkbox>记住密码</Checkbox>
                                 )
                             }
-                            <a href="#" style={{float:'right'}}>忘记密码</a>
+                            <a href="product" style={{float:'right'}}>忘记密码</a>
                         </FormItem>
                         <FormItem>
                             <Button type="primary" onClick={this.handleSubmit}>登录</Button>
