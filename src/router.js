@@ -6,7 +6,8 @@ import OrderPage from './routes/OrderPage/OrderPage';
 import ProductPage from './routes/ProductPage/ProductPage';
 import TypePage from './routes/TypePage/TypePage';
 import WaiterPage from './routes/WaiterPage/WaiterPage';
-import LoginPage from './routes/LoginPage/LoginPage'
+import LoginPage from './routes/LoginPage/LoginPage';
+import IndexPage from './routes/IndexPage/IndexPage';
 
 function RouterConfig({ history }) {
   return (
@@ -19,6 +20,7 @@ function RouterConfig({ history }) {
         <Route path = "/product" exact component = {ProductPage} />
         <Route path = "type" exact component = {TypePage} />
         <Route path = "waiter" exact component = {WaiterPage} />
+        <Route path = "index" exact component ={IndexPage} />
       </Switch>
     </Router>
   );
