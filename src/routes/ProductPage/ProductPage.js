@@ -226,7 +226,7 @@ const treeData = [
           placeholder="服务列表"
           onChange={this.onChange}
           />
-          <Button type="primary">选择服务</Button>
+          <Button type="primary" className={styles.selSerBtn}>选择服务</Button>
       </div>
       <br/>
       <Table 
