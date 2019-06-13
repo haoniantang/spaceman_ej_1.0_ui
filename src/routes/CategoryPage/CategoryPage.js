@@ -1,8 +1,8 @@
 import React from 'react';
-import styles from './TypePage.less'
+import styles from './CategoryPage.less'
 import {Modal, Button, Table, message} from 'antd'
 import axios from '../../utils/axios'
-import TypeForm from './TypeForm'
+import CategoryForm from './CategoryForm'
 
 class TypePage extends React.Component {
     constructor(){
