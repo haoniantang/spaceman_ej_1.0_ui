@@ -7,6 +7,7 @@ import ProductPage from './routes/ProductPage/ProductPage';
 import CategoryPage from './routes/CategoryPage/CategoryPage';
 import WaiterPage from './routes/WaiterPage/WaiterPage';
 import LoginPage from './routes/LoginPage/LoginPage';
+import AddressPage from './routes/AddressPage/AddressPage';
 import IndexPage from './routes/IndexPage/IndexPage';
 
 function RouterConfig({ history }) {
@@ -21,6 +22,7 @@ function RouterConfig({ history }) {
         <Route path = "/category" exact component = {CategoryPage} />
         <Route path = "/waiter" exact component = {WaiterPage} />
         <Route path = "/login" exact component ={LoginPage} />
+        <Route path = "/address" exact component ={AddressPage} />
       </Switch>
     </Router>
   );
