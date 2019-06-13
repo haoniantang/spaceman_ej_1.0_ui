@@ -1,15 +1,20 @@
 import React from "react";
 import { Form, Input, Button, message, Icon, Checkbox } from "antd";
+import axios from '../../utils/axios'
 import styles from './LoginPage.less'
 const FormItem = Form.Item;
 class FormLogin extends React.Component{
-
     handleSubmit = ()=>{
         let userInfo = this.props.form.getFieldsValue();
-        this.props.form.validateFields((err,values)=>{
-            if(!err){
-                message.success(`${userInfo.userName}欢迎登录`)
+        axios.get("/customer/findCustomerById?id=" + userInfo.userName)
+        .then((result) => {
+            if(result.data.password === userInfo.userPwd)
+            {
+                message.success(userInfo.userName + "欢迎登陆")
+                // dispatch({ type: '/customer' })
             }
+            else
+                message.error("用户名或密码错误，请重新输入")
         })
     } 
 
@@ -32,7 +37,7 @@ class FormLogin extends React.Component{
                                             message:'用户名不能为空'
                                         },
                                         {
-                                            min:5,max:10,
+                                            min:4,max:10,
                                             message:'长度不在范围内'
                                         },
                                         {
@@ -66,8 +71,8 @@ class FormLogin extends React.Component{
                             }
                             <a href="product" style={{float:'right'}}>忘记密码</a>
                         </FormItem>
-                        <FormItem>
-                            <Button type="primary" onClick={this.handleSubmit}>登录</Button>
+                        <FormItem className={styles.additional}>
+                            <Button type="primary" htmlType="submit" onClick={this.handleSubmit}>登录</Button>
                         </FormItem>
                     </Form>
             </div>

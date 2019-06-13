@@ -4,7 +4,7 @@ import { routerRedux } from 'dva/router';
 import { Form, Input, Button, Icon } from 'antd';
 import Store from 'store';
 import Config from '../../common/config'
-import styles from './Login.less';
+import styles from './LoginPage.less';
 
 const FormItem = Form.Item;
 
