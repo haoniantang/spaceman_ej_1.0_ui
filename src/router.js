@@ -13,14 +13,14 @@ function RouterConfig({ history }) {
   return (
     <Router history={history}>
       <Switch>
-        <Route path = "/" exact component = {LoginPage} />
+        <Route path = "/" exact component = {IndexPage} />
         <Route path = "/customer" exact component = {CustomerPage} />
-        <Route path = "evaluation" exact component = {EvaluationPage} />
-        <Route path = "order" exact component = {OrderPage} />
+        <Route path = "/evaluation" exact component = {EvaluationPage} />
+        <Route path = "/order" exact component = {OrderPage} />
         <Route path = "/product" exact component = {ProductPage} />
-        <Route path = "type" exact component = {TypePage} />
-        <Route path = "waiter" exact component = {WaiterPage} />
-        <Route path = "index" exact component ={IndexPage} />
+        <Route path = "/type" exact component = {TypePage} />
+        <Route path = "/waiter" exact component = {WaiterPage} />
+        <Route path = "/login" exact component ={LoginPage} />
       </Switch>
     </Router>
   );
