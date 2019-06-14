@@ -23,6 +23,8 @@ class FormLogin extends React.Component{
                         message.error("用户名或密码错误，请重新输入")
                     }
                     break;
+                default:
+                    ;
             }
         })
     } 
