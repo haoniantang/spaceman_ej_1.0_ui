@@ -4,19 +4,6 @@ import {Form, Modal, Input, Cascader} from 'antd';
 import {cityData} from './CityData';
 
 class AddressForm extends React.Component{
-
-
-    //测试
-    onChange= (value)=> {
-        console.log(value);
-        this.props.form.setFieldsValue({ province: value[0] });
-        this.props.form.setFieldsValue({ city: value[1] });
-        this.props.form.setFieldsValue({ area: value[2]});
-        console.log(value[0]);
-        console.log(value[1]);
-        console.log(value[2]);
-    }
- 
   
     render(){
         const formLayout = {
@@ -52,21 +39,10 @@ class AddressForm extends React.Component{
                         })(
                             <Cascader
                             options={cityData}
-                            //defaultValue={['河南省', '郑州市', '中原区']}
-                            //onChange={this.onChange}
+
                             />
                         )}
                     </Form.Item>
-                    {/* <Form.Item label="省份">
-                        {getFieldDecorator('province', {
-                            rules: [{required: true, message: '省份为空！'}]
-                        }) (<Input></Input>)}
-                    </Form.Item>
-                    <Form.Item label="城市">
-                        {getFieldDecorator('city', {
-                            rules: [{required: true, message: '城市为空！'}]
-                        }) (<Input></Input>)}
-                    </Form.Item>*/}
                     <Form.Item label="街道">
                         {getFieldDecorator('address', {
                             rules: [{required: true, message: '街道为空！'}]

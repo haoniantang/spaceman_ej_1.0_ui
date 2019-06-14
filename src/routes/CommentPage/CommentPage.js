@@ -24,7 +24,11 @@ class CommentPage extends React.Component {
     // 重载数据
     reloadData(){
         this.setState({loading:true});
-        axios.get("/comment/findCommentByOrderId?5001")
+        axios.get("/comment/findCommentByOrderId",{
+          params:{
+            order_id:"5001"
+          }
+        })
         .then((result)=>{
         // 将查询数据更新到state中
         this.setState({list:result.data})
