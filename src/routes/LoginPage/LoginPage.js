@@ -10,7 +10,7 @@ class FormLogin extends React.Component{
         .then((result) => {
             if(result.data.password === userInfo.userPwd)
             {
-                message.success(userInfo.userName + "欢迎登陆")
+                message.success(userInfo.userName + "欢迎登录")
                 // dispatch({ type: '/customer' })
             }
             else

@@ -41,7 +41,7 @@ class CustomerPage extends React.Component {
   handleBatchDelete(){
     Modal.confirm({
       title: '确定删除这些记录吗?',
-      content: '删除后数据将无法恢复',
+      //content: '删除后数据将无法恢复',
       onOk:() => {
         axios.post("/customer/batchDeleteCustomer",{ids:this.state.ids})
         .then((result)=>{
@@ -53,11 +53,11 @@ class CustomerPage extends React.Component {
     });
   }
 
-  // 单个删除
+  // 单个删除（设置status为0）
   handleDelete(id){
     Modal.confirm({
-      title: '确定删除这条记录吗?',
-      content: '删除后数据将无法恢复',
+      title: '确定对该用户封号吗?',
+      // content: '删除后数据将无法恢复',
       onOk:() => {
         // 删除操作
         axios.get("/customer/deleteCustomerById",{
@@ -73,6 +73,29 @@ class CustomerPage extends React.Component {
       }
     });
   }
+
+  // 单个恢复，设置status为1
+  handleRecover(id){
+    Modal.confirm({
+      title: '确定恢复这个用户使用权限吗?',
+      // content: '删除后数据将无法恢复',
+      onOk:() => {
+        // 恢复操作
+
+        axios.get("/customer/recoverCustomerById",{
+          params:{
+            id:id
+          }
+        })
+        .then((result)=>{
+          // 恢复成功后提醒消息，并且重载数据
+          message.success(result.statusText);
+          this.reloadData();
+        })
+      }
+    });
+  }
+
   // 取消按钮的事件处理函数
   handleCancel = () => {
     this.setState({ visible: false });
@@ -80,6 +103,7 @@ class CustomerPage extends React.Component {
   // 确认按钮的事件处理函数
   handleCreate = () => {
     const form = this.formRef.props.form;
+    form.setFieldsValue({ status: "1"});
     form.validateFields((err, values) => {
       if (err) {
         return;
@@ -129,13 +153,14 @@ class CustomerPage extends React.Component {
       dataIndex:'status'
     },{
       title:'操作',
-      width:120,
+      width:180,
       align:"center",
       render:(text,record)=>{
         return (
           <div>
-            <Button type='link' size="small" onClick={this.handleDelete.bind(this,record.id)}>删除</Button>
             <Button type='link' size="small" onClick={this.toEdit.bind(this,record)}>修改</Button>
+            <Button type='link' size="small" onClick={this.handleDelete.bind(this,record.id)}>封号</Button>
+            <Button type='link' size="small" onClick={this.handleRecover.bind(this,record.id)}>恢复</Button>
           </div>
         )
       }
