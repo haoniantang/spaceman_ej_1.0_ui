@@ -16,13 +16,15 @@ class FormLogin extends React.Component{
                     if(result.data.password === userInfo.userPwd)
                     {
                         message.success(userInfo.userName + "欢迎登陆")
-                        //
+                        window.location.href="#/customer"
                     }
                     else
                     {
                         message.error("用户名或密码错误，请重新输入")
                     }
                     break;
+                default:
+                    ;
             }
         })
     } 
