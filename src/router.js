@@ -1,5 +1,4 @@
 import React from 'react';
-import styles from 'antd/dist/antd.css';
 import { Router, Route, Switch } from 'dva/router';
 import CustomerPage from './routes/CustomerPage/CustomerPage';
 import CommentPage from './routes/CommentPage/CommentPage';

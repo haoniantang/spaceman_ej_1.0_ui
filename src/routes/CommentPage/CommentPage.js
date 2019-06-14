@@ -67,7 +67,7 @@ class CommentPage extends React.Component {
     // 返回结果 jsx(js + xml)
     return (
       <div className={styles.comment}>
-        <div className={styles.title}>顾客管理</div>
+        <div className={styles.title}>评论管理</div>
         <div className={styles.btns}>
           
           <Button type="link">导出</Button>
