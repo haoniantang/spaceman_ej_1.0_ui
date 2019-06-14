@@ -8,13 +8,22 @@ class FormLogin extends React.Component{
         let userInfo = this.props.form.getFieldsValue();
         axios.get("/customer/findCustomerById?id=" + userInfo.userName)
         .then((result) => {
-            if(result.data.password === userInfo.userPwd)
-            {
-                message.success(userInfo.userName + "欢迎登录")
-                // dispatch({ type: '/customer' })
+            switch(result.data.status){
+                case '0':
+                        message.error("您已被封号，无法登陆");
+                    break;
+                case '1':
+                    if(result.data.password === userInfo.userPwd)
+                    {
+                        message.success(userInfo.userName + "欢迎登陆")
+                        //
+                    }
+                    else
+                    {
+                        message.error("用户名或密码错误，请重新输入")
+                    }
+                    break;
             }
-            else
-                message.error("用户名或密码错误，请重新输入")
         })
     } 
 
