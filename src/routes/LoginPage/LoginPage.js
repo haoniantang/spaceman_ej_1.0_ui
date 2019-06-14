@@ -16,7 +16,7 @@ class FormLogin extends React.Component{
                     if(result.data.password === userInfo.userPwd)
                     {
                         message.success(userInfo.userName + "欢迎登陆")
-                        //
+                        window.location.href="#/customer"
                     }
                     else
                     {
