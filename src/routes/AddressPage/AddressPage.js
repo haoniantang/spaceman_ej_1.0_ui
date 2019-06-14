@@ -62,7 +62,11 @@ class AddressPage extends React.Component{
             if(err){
                 return ;
             }
-            alert(JSON.stringify(values));
+            const Alladdress=values.addressAll;
+            values.province=Alladdress[0];
+            values.city=Alladdress[1];
+            values.area=Alladdress[2];
+            delete values.addressAll;
             axios.post("/address/saveOrUpdateAddress", values)
             .then( (result)=>{
                 message.success(result.statusText)
