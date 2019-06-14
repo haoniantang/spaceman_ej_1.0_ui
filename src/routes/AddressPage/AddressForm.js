@@ -9,9 +9,9 @@ class AddressForm extends React.Component{
     //测试
     onChange= (value)=> {
         console.log(value);
-        this.props.form.setFieldsValue({ province: value[0], });
+        this.props.form.setFieldsValue({ province: value[0] });
         this.props.form.setFieldsValue({ city: value[1] });
-        this.props.form.setFieldsValue({ address: value[2]});
+        this.props.form.setFieldsValue({ area: value[2]});
         console.log(value[0]);
         console.log(value[1]);
         console.log(value[2]);
@@ -52,8 +52,8 @@ class AddressForm extends React.Component{
                         })(
                             <Cascader
                             options={cityData}
-                            defaultValue={['河南省', '郑州市', '中原区']}
-                            onChange={this.onChange}
+                            //defaultValue={['河南省', '郑州市', '中原区']}
+                            //onChange={this.onChange}
                             />
                         )}
                     </Form.Item>
@@ -66,12 +66,12 @@ class AddressForm extends React.Component{
                         {getFieldDecorator('city', {
                             rules: [{required: true, message: '城市为空！'}]
                         }) (<Input></Input>)}
-                    </Form.Item>
+                    </Form.Item>*/}
                     <Form.Item label="街道">
                         {getFieldDecorator('address', {
                             rules: [{required: true, message: '街道为空！'}]
                         }) (<Input></Input>)}
-                    </Form.Item> */}
+                    </Form.Item>
                     <Form.Item label="电话">
                         {getFieldDecorator('telephone', {
                             rules: [{required: false, message: '电话为空！'}]
