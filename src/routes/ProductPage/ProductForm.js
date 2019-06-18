@@ -1,16 +1,7 @@
 import React from 'react';
-import {
-  message,
-  Upload,
-  Button,
-  Icon,
-  Form,
-  Modal,
-  Input,
-  Select
-} from 'antd'
-
+import {message,Upload,Button,Icon,Form,Modal,Input,Select} from 'antd'
 import axios from '../../utils/axios'
+
 
 class ProductForm extends React.Component {
   constructor(props){

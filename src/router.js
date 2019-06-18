@@ -21,12 +21,9 @@ function RouterConfig({ history }) {
           <Menu
             theme="dark"
             mode="horizontal"
-            defaultSelectedKeys={['2']}
             style={{ lineHeight: '64px' }}
           >
-            <Menu.Item key="1">.</Menu.Item>
-            <Menu.Item key="2">.</Menu.Item>
-            <Menu.Item key="3">.</Menu.Item>
+            <Menu.Item>易洁家政后台管理系统</Menu.Item>
           </Menu>
         </Header>
         <Layout>
@@ -54,7 +51,6 @@ function RouterConfig({ history }) {
                 </Menu.Item>
               </SubMenu>
               <SubMenu
-                // key="sub2"
                 title={
                   <span>
                     <Icon type="notification" />
@@ -86,9 +82,9 @@ function RouterConfig({ history }) {
           </Sider>
           <Layout style={{ padding: '0 24px 24px' }}>
             <Breadcrumb style={{ margin: '16px 0' }}>
-              <Breadcrumb.Item>Home</Breadcrumb.Item>
-              <Breadcrumb.Item>List</Breadcrumb.Item>
-              <Breadcrumb.Item>App</Breadcrumb.Item>
+              <Breadcrumb.Item>主页</Breadcrumb.Item>
+              <Breadcrumb.Item>类别</Breadcrumb.Item>
+              <Breadcrumb.Item>服务</Breadcrumb.Item>
             </Breadcrumb>
             <Content
               style={{
