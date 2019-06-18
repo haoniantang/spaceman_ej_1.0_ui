@@ -7,7 +7,6 @@ import ProductPage from './routes/ProductPage/ProductPage';
 import CategoryPage from './routes/CategoryPage/CategoryPage';
 import WaiterPage from './routes/WaiterPage/WaiterPage';
 import LoginPage from './routes/LoginPage/LoginPage';
-import AddressPage from './routes/AddressPage/AddressPage';
 import IndexPage from './routes/IndexPage/IndexPage';
 import { Layout, Menu, Breadcrumb, Icon } from 'antd';
 
@@ -55,19 +54,16 @@ function RouterConfig({ history }) {
                 </Menu.Item>
               </SubMenu>
               <SubMenu
-                key="sub2"
+                // key="sub2"
                 title={
                   <span>
                     <Icon type="notification" />
-                    评价与地址
+                    评价
                   </span>
                 }
               >
                 <Menu.Item>
-                  <a href="#/comment">评价管理</a>
-                </Menu.Item>
-                <Menu.Item>
-                  <a href="#/address">地址管理</a>
+                  <a href="#/comment" >评价管理</a>
                 </Menu.Item>
               </SubMenu>
               <SubMenu
@@ -111,7 +107,6 @@ function RouterConfig({ history }) {
                 <Route path = "/category" exact component = {CategoryPage} />
                 <Route path = "/waiter" exact component = {WaiterPage} />
                 <Route path = "/login" exact component ={LoginPage} />
-                <Route path = "/address" exact component ={AddressPage} />
               </Switch>
             </Content>
           </Layout>
