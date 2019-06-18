@@ -1,7 +1,5 @@
 import React from 'react';
-// 引入css进行页面美化
 import styles from './WaiterPage.less'
-// 导入组件
 import {Modal,Button, Table,message} from 'antd'
 import axios from '../../utils/axios'
 import WaiterForm from './WaiterForm'
@@ -186,12 +184,12 @@ class WaiterPage extends React.Component {
     // 返回结果 jsx(js + xml)
     return (
       <div className={styles.waiter}>
-        <div className={styles.title}>服务员管理</div>
         <div className={styles.btns}>
-          <Button onClick={this.toAdd.bind(this)}>添加</Button> &nbsp;
-          <Button onClick={this.handleBatchDelete.bind(this)}>批量删除</Button> &nbsp;
-          <Button type="link">导出</Button>
+          <Button type="primary" onClick={this.toAdd.bind(this)}>添加</Button> &nbsp;
+          <Button type="danger" onClick={this.handleBatchDelete.bind(this)}>批量删除</Button> &nbsp;
+          <Button type="link" className={styles.selSerBtn}>导出</Button>
         </div>
+        <br/>
         <Table 
           bordered
           rowKey="id"

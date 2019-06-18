@@ -120,14 +120,6 @@ handleSearch = ()=>{
   })
 }
 
-//把选择的服务的id传给后台
-sendId=()=>{
-  let productID = this.props.form.getFieldsValue();
-  axios.post("/order/save",productID.id)
-  .then((result) => {
-    this.setState({list:result.data})
-  })
-}
 //更新
 toEdit(record){
   // 更前先先把要更新的数据设置到state中
@@ -199,7 +191,6 @@ Success=()=>{
  
     return (
       <div className={styles.product}>
-      <div className={styles.title}>服务选择</div>
         <Form>
           <FormItem>
               {
@@ -211,18 +202,14 @@ Success=()=>{
                               message:'输入不能为空'
                           }
                       ]
-                  })(
-                      <Input className={styles.Input} placeholder=" 请查询服务名称" />
-                  )
+                  })(<Input className={styles.Input} style={{ width: 200 }} placeholder=" 请查询服务名称" />)
               }
+              &nbsp;&nbsp;
+              <Button type="primary" htmlType="submit" onClick={this.handleSearch}>查询</Button>
           </FormItem>
           <FormItem className={styles.additional}>
-              <Button type="primary" htmlType="submit" onClick={this.handleSearch}>查询</Button>
-              &nbsp;&nbsp;
-              <Button type="primary" onClick={this.reloadData}>所有服务</Button>
-              &nbsp;&nbsp;
-              <Button type="primary" onClick={this.toAdd.bind(this)}>添加</Button> &nbsp;
-              <Button type="primary" onClick={this.Success} onClick={this.sendId} className={styles.selSerBtn}>选择服务</Button>
+            <Button type="primary" onClick={this.toAdd.bind(this)}>添加</Button>
+            <Button type="primary" onClick={this.reloadData} className={styles.selSerBtn}>所有服务</Button>  
           </FormItem>
           </Form> 
         <Table 

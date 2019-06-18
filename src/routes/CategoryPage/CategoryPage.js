@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './CategoryPage.less'
-import {Modal, Button, Table, message} from 'antd'
+import {Modal, Button, Table, message,Form} from 'antd'
 import axios from '../../utils/axios'
 import CategoryForm from './CategoryForm'
 
@@ -135,11 +135,17 @@ class CategoryPage extends React.Component {
       
       return(
         <div className={styles.customer}>
-          <div className={styles.title}>分类管理</div>
+          {/* <Form>
+            <FormItem className={styles.additional}>
+              <Button type="primary" onClick={this.toAdd.bind(this)}>添加</Button> &nbsp;
+              <Button type="link">导出</Button>
+            </FormItem>
+          </Form> */}
           <div className={styles.btns}>
-            <Button onClick={this.toAdd.bind(this)}>添加</Button> &nbsp;
-            <Button type="link">导出</Button>
+            <Button type="primary" onClick={this.toAdd.bind(this)}>添加</Button> &nbsp;
+            <Button type="link" className={styles.selSerBtn}>导出</Button>
           </div>
+          <br/>
           <Table 
             bordered
             rowKey="id"
@@ -160,4 +166,4 @@ class CategoryPage extends React.Component {
     }
 }
 
-export default CategoryPage;
+export default Form.create()(CategoryPage);

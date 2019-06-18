@@ -71,12 +71,12 @@ function RouterConfig({ history }) {
                 title={
                   <span>
                     <Icon type="user" />
-                    人员管理
+                    员工&用户
                   </span>
                 }
               >
                 <Menu.Item>
-                  <a href="#/waiter">工人管理</a>
+                  <a href="#/waiter">员工管理</a>
                 </Menu.Item>
                 <Menu.Item>
                   <a href="#/customer">用户管理</a>

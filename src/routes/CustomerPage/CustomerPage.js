@@ -1,13 +1,9 @@
 import React from 'react';
-// 引入css进行页面美化
 import styles from './CustomerPage.less'
-// 导入组件
-import {Modal,Button, Table,message} from 'antd'
+import {Modal,message,Button, Table} from 'antd'
 import axios from '../../utils/axios'
 import CustomerForm from './CustomerForm'
 
-
-// 组件类必须要继承React.Component，是一个模块，顾客管理子功能
 class CustomerPage extends React.Component {
   // 局部状态state
   constructor(){
@@ -181,12 +177,12 @@ class CustomerPage extends React.Component {
     // 返回结果 jsx(js + xml)
     return (
       <div className={styles.customer}>
-        <div className={styles.title}>顾客管理</div>
         <div className={styles.btns}>
-          <Button onClick={this.toAdd.bind(this)}>添加</Button> &nbsp;
-          <Button onClick={this.handleBatchDelete.bind(this)}>批量封号</Button> &nbsp;
-          <Button type="link">导出</Button>
+          <Button type="primary"onClick={this.toAdd.bind(this)}>添加</Button> &nbsp;
+          <Button type="danger" onClick={this.handleBatchDelete.bind(this)}>批量封号</Button> &nbsp;
+          <Button type="link" className={styles.selSerBtn}>导出</Button>
         </div>
+        <br/>
         <Table 
           bordered
           rowKey="id"
