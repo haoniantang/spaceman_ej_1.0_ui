@@ -134,6 +134,15 @@ class CustomerPage extends React.Component {
     this.setState({visible:true})
   }
 
+  toDetails(record){
+    console.log(record);
+    //跳转 react-router
+    this.props.history.push({
+      pathname:"/customerdetails",
+      payload:record
+    })
+  }
+
   // 组件类务必要重写的方法，表示页面渲染
   render(){
     // 变量定义
@@ -155,6 +164,7 @@ class CustomerPage extends React.Component {
         return (
           <div>
             <Button type='link' size="small" onClick={this.toEdit.bind(this,record)}>修改</Button>
+            <Button type='link' size="small" onClick={this.toDetails.bind(this,record)}>详情</Button>
             <Button type='link' size="small" onClick={this.handleDelete.bind(this,record.id)}>封号</Button>
             <Button type='link' size="small" onClick={this.handleRecover.bind(this,record.id)}>恢复</Button>
           </div>

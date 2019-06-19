@@ -87,9 +87,9 @@ class CategoryPage extends React.Component {
 
     toEdit(record){
         // 更前先先把要更新的数据设置到state中
-        this.setState({category:record, visible:true})
+        this.setState({category:record})
         // 将record值绑定表单中
-        // this.setState({visible:true})
+        this.setState({visible:true})
     }
 
     render() {
