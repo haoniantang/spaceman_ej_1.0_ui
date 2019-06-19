@@ -55,10 +55,13 @@ function RouterConfig({ history }) {
                 title={
                   <span>
                     <Icon type="notification" />
-                    评价
+                    订单相关
                   </span>
                 }
               >
+                <Menu.Item>
+                  <a href="#/order" >查看订单</a>
+                </Menu.Item>
                 <Menu.Item>
                   <a href="#/comment" >评价管理</a>
                 </Menu.Item>

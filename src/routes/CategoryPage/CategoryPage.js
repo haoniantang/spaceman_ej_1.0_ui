@@ -114,7 +114,7 @@ class CategoryPage extends React.Component {
             return (
               <div>
                 <Button type='link' size="small" onClick={this.toEdit.bind(this,record)}>修改</Button>
-                <Button type='link' size="small" onClick={this.handleDelete.bind(this,record.id)}>删除</Button>
+                <Button type='link' size="small" className={styles.DeleteBtn} onClick={this.handleDelete.bind(this,record.id)}>删除</Button>
               </div>
             )
           }
