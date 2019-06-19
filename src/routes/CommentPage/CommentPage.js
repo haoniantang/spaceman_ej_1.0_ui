@@ -57,8 +57,8 @@ class CommentPage extends React.Component {
       render:(text,record)=>{
         return (
           <div>
-            <Button type='link' size="small" >删除</Button>
             <Button type='link' size="small" >修改</Button>
+            <Button type='link' size="small" className={styles.DeleteBtn}>删除</Button>
           </div>
         )
       }

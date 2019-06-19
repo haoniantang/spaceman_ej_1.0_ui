@@ -1,14 +1,10 @@
 import React from 'react';
-// 引入css进行页面美化
 import styles from './OrderPage.less'
-// 导入组件
 import {Modal,Button, Table,message} from 'antd'
 import axios from '../../utils/axios'
 
-
-// 组件类必须要继承React.Component，是一个模块，顾客管理子功能
 class OrderPage extends React.Component {
-  // 局部状态state
+
   constructor(){
     super();
     this.state = {
@@ -142,41 +138,48 @@ class OrderPage extends React.Component {
     // 变量定义
     let columns = [{
       title:'订单号',
-      dataIndex:'orderId'
+      align:"center",
+      dataIndex:'orderId',
+      width:"10%"
     },{
       title:'顾客姓名',
-      dataIndex:'customerName'
+      align:"center",
+      dataIndex:'customerName',
+      width:"10%"
     }
     ,{
         title:'服务员姓名',
-        dataIndex:'waiterName'
+        align:"center",
+        dataIndex:'waiterName',
+        width:"10%"
       },{
       title:'地址',
       align:"center",
-      dataIndex:'address'
+      dataIndex:'address',
+      width:"32%"
     },{
         title:'价格',
         align:"center",
-        dataIndex:'total'
+        dataIndex:'total',
+        width:"10%"
       },{
-        title:'时间戳址',
+        title:'时间',
         align:"center",
-        dataIndex:'orderTime'
+        dataIndex:'orderTime',
+        width:"15%"
       }
-      // ,{
-    //   title:'操作',
-    //   width:180,
-    //   align:"center",
-    //   render:(text,record)=>{
-    //     return (
-    //       <div>
-    //         <Button type='link' size="small" onClick={this.toEdit.bind(this,record)}>修改</Button>
-    //         <Button type='link' size="small" onClick={this.handleDelete.bind(this,record.id)}>封号</Button>
-    //         <Button type='link' size="small" onClick={this.handleRecover.bind(this,record.id)}>恢复</Button>
-    //       </div>
-    //     )
-    //   }
-    // }
+      ,{
+      title:'操作',
+      align:"center",
+      width:"15%",
+      render:(text,record)=>{
+        return (
+          <div>
+            <Button type='link' size="small" onClick={this.toEdit.bind(this,record)}>查看订单项</Button>
+          </div>
+        )
+      }
+    }
   ]
     const rowSelection = {
       onChange: (selectedRowKeys, selectedRows) => {
@@ -194,11 +197,10 @@ class OrderPage extends React.Component {
     // 返回结果 jsx(js + xml)
     return (
       <div className={styles.OrderPage}>
-        <div className={styles.title}>订单管理</div>
         <div className={styles.btns}>
-          <Button onClick={this.toAdd.bind(this)}>添加</Button> &nbsp;
-          <Button onClick={this.handleBatchDelete.bind(this)}>批量删除</Button> &nbsp;
-          <Button type="link">导出</Button>
+          <Button type="primary" onClick={this.toAdd.bind(this)}>添加</Button> &nbsp;&nbsp;
+          <Button type="danger" onClick={this.handleBatchDelete.bind(this)}>批量删除</Button> &nbsp;&nbsp;
+          <Button type="link" className={styles.selSerBtn}>导出</Button>
         </div>
         <Table 
           bordered
