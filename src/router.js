@@ -99,14 +99,13 @@ function RouterConfig({ history }) {
               }}
             >
               <Switch>
-                <Route path = "/" exact component = {IndexPage} />
+                <Route path = "/" exact component = {LoginPage} />
                 <Route path = "/customer" exact component = {CustomerPage} />
                 <Route path = "/comment" exact component = {CommentPage} />
                 <Route path = "/order" exact component = {OrderPage} />
                 <Route path = "/product" exact component = {ProductPage} />
                 <Route path = "/category" exact component = {CategoryPage} />
                 <Route path = "/waiter" exact component = {WaiterPage} />
-                <Route path = "/login" exact component ={LoginPage} />
                 <Route path = "/customerdetails" exact component ={CustomerDetails} />
               </Switch>
             </Content>
