@@ -161,7 +161,7 @@ class WaiterPage extends React.Component {
       render:(text,record)=>{
         return (
           <div>
-            <Button type='link' size="small" onClick={this.toEdit.bind(this,record)}>修改</Button>
+            <Button type='link' size="small" onClick={this.toEdit.bind(this,record)}>更新</Button>
             <Button type='link' size="small" className={styles.DeleteBtn} onClick={this.handleDelete.bind(this,record.id)}>封号</Button>
             <Button type='link' size="small" onClick={this.handleRecover.bind(this,record.id)}>恢复</Button>
           </div>

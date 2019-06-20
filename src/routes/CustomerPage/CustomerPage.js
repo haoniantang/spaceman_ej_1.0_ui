@@ -148,24 +148,27 @@ class CustomerPage extends React.Component {
     // 变量定义
     let columns = [{
       title:'姓名',
-      dataIndex:'realname'
+      dataIndex:'realname',
+      width:"25%"
     },{
       title:'手机号',
-      dataIndex:'telephone'
+      dataIndex:'telephone',
+      width:"40%"
     },{
       title:'状态',
       align:"center",
-      dataIndex:'status'
+      dataIndex:'status',
+      width:"15%"
     },{
       title:'操作',
-      width:180,
+      width:"20%",
       align:"center",
       render:(text,record)=>{
         return (
           <div>
-            <Button type='link' size="small" onClick={this.toEdit.bind(this,record)}>修改</Button>
             <Button type='link' size="small" onClick={this.toDetails.bind(this,record)}>详情</Button>
-            <Button type='link' size="small" onClick={this.handleDelete.bind(this,record.id)}>封号</Button>
+            <Button type='link' size="small" onClick={this.toEdit.bind(this,record)}>更新</Button>
+            <Button type='link' size="small" className={styles.DeleteBtn} onClick={this.handleDelete.bind(this,record.id)}>封号</Button>
             <Button type='link' size="small" onClick={this.handleRecover.bind(this,record.id)}>恢复</Button>
           </div>
         )

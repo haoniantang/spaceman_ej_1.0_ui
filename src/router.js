@@ -8,6 +8,7 @@ import CategoryPage from './routes/CategoryPage/CategoryPage';
 import WaiterPage from './routes/WaiterPage/WaiterPage';
 import LoginPage from './routes/LoginPage/LoginPage';
 import IndexPage from './routes/IndexPage/IndexPage';
+import OrderDetails from './routes/OrderPage/OrderDetails';
 import CustomerDetails from './routes/CustomerPage/CustomerDetails';
 import { Layout, Menu, Breadcrumb, Icon } from 'antd';
 
@@ -107,6 +108,7 @@ function RouterConfig({ history }) {
                 <Route path = "/category" exact component = {CategoryPage} />
                 <Route path = "/waiter" exact component = {WaiterPage} />
                 <Route path = "/login" exact component ={LoginPage} />
+                <Route path = "/orderdetails" exact component ={OrderDetails} />
                 <Route path = "/customerdetails" exact component ={CustomerDetails} />
               </Switch>
             </Content>

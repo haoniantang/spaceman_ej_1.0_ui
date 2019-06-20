@@ -57,7 +57,7 @@ class CommentPage extends React.Component {
       render:(text,record)=>{
         return (
           <div>
-            <Button type='link' size="small" >修改</Button>
+            <Button type='link' size="small" >更新</Button>
             <Button type='link' size="small" className={styles.DeleteBtn}>删除</Button>
           </div>
         )
@@ -70,6 +70,7 @@ class CommentPage extends React.Component {
         <div className={styles.btns}>
           <Button type="link" className={styles.selSerBtn}>导出</Button>
         </div>
+        <br/>
         <Table 
           bordered
           rowKey="id"
