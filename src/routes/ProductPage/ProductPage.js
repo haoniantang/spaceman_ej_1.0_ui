@@ -28,7 +28,7 @@ componentDidMount(){
 //加载全部服务
 reloadData(){
   this.setState({loading:true});
-    axios.get("/product/findAllProduct")
+    axios.post("/product/findAllProduct")
     .then((result)=>{
       this.setState({list:result.data})
     })
