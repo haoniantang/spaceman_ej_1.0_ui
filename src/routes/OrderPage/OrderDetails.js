@@ -7,7 +7,7 @@ class CustomerDetails extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      orders:['id:6002 number:1 productID:7001 orderID:5001']
+      orders:['订单项:6002 数量:1 服务序号:7001 订单号:5001']
     }
   }
 
